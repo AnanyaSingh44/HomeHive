@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+<body>
+    <br>
+    <h1 class="col-8 offset-2" > SignUp for HomeHive </h1>
+    <br>
+   <div id="signup" class="col-8 offset-2">
+    <form method="POST" action="/signup" class="needs-validation" novalidate>
+        <div>
+            <label class="form-label" for="username">Username</label>
+            <input required class="form-control" id="username" type="text" name="username">
+            <div class="valid-feedback">
+            Looks good !
+            </div>
+        </div>
+        <br>
+        <div>
+            <label class="form-label" for="email">Email</label>
+            <input required class="form-control" id="email" type="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label class="form-label" for="password">Password</label>
+            <input required class="form-control" id="password" type="password" name="password">
+        </div>
+        <br>
+        <button class="btn btn-primary"> SignUp </button>
+
+    </form>
+
+   </div>
+</body>

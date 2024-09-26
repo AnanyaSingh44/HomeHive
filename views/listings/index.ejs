@@ -1,0 +1,89 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<body>
+    <br>
+    <div id="filters" class="d-flex align-item-center flex-row mt-2 ps-4 pe-3">
+        <div id="all-filters" class="all-filters container-fluid d-flex flex-row">
+          <div class="filters">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-fire"></i></div> 
+          <p>Trending</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-bed"></i></div> 
+          <p>Rooms</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-mountain-city"></i></i></div> 
+          <p>Iconic Cities</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-mountain"></i></div> 
+          <p>Mountains</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-chess-rook"></i></div> 
+          <p>Castles</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-campground"></i></div> 
+          <p>Camping</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-cow"></i></i></div> 
+          <p>Farms</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-regular fa-snowflake"></i></div> 
+          <p>Arctic</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-umbrella-beach"></i></div> 
+          <p>Beachfronts</p> 
+        </div>
+        <div class="filters ms-4">
+          <div class="filter d-flex justify-content-center"><i class="fa-solid fa-igloo"></i></i></div> 
+          <p>Domes</p> 
+        </div></div>
+        
+        <div class="form-check-reverse form-switch tax-toggle ms-auto pt-2">
+          <input class="form-check-input me-1 ms-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        </div>
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+        <% for (list of allListing) { %>
+            <a href="/listings/<%= list._id %>" class="listing-link ">
+                <div class="card col listing-card ms-2">
+                    <img src="<%= list.image.url %>" class="card-img-top" style="height: 20rem;" alt="Place Image">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text ms-3 mt-2">
+                            <b><%= list.title %></b> <br>
+                            <% if (list.price) { %>
+                                &#x20b9;<%= list.price.toLocaleString("en-In") %> /night 
+                                <i class="taxInfo"> &nbsp; &nbsp; + 18% GST</i>
+                            <% } else { %>
+                                Price not available
+                            <% } %>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>
+<script>
+  let taxSwitch = document.getElementById('flexSwitchCheckDefault');
+
+
+  taxSwitch.addEventListener("change", () => {
+    let taxInfo = document.getElementsByClassName("taxInfo");
+    for(info of taxInfo) {
+        if (taxSwitch.checked) {
+          info.style.display = "inline";
+      } else {
+          info.style.display = "none";
+      }
+    }
+  })
+</script>
