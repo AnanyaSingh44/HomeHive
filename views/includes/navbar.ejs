@@ -1,55 +1,117 @@
 <style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 1rem;
+  /* NAVBAR STYLES */
+  .navbar-custom {
+    background: #ffffff;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
   }
-  .search-btn:hover {
-    background-color: #fe424d;
+
+  /* Center Brand Title */
+  .navbar-center-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    color: #fe424d;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Navbar Links */
+  .navbar-nav .nav-link {
+    font-weight: 500;
+    margin-inline: 0.5rem;
+    color: #444 !important;
+    transition: 0.2s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #fe424d !important;
+  }
+
+  /* Buttons */
+  .btn-auth {
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+
+  .btn-signup {
+    border: 1px solid #fe424d;
+    color: #fe424d;
+  }
+  .btn-signup:hover {
+    background: #fe424d;
     color: #fff;
   }
 
-  .search-btn i {
-    display: inline;
-    margin-right: 0.5rem;
+  .btn-login {
+    border: 1px solid #444;
+    color: #444;
+  }
+  .btn-login:hover {
+    background: #444;
+    color: #fff;
   }
 
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem;
-    font-size: 1rem;
+  .btn-logout {
+    border: 1px solid #fe424d;
+    color: #fe424d;
   }
+  .btn-logout:hover {
+    background: #fe424d;
+    color: #fff;
+  }
+
+  /* Icon Styling */
+  .navbar-brand i {
+    font-size: 1.5rem;
+    color: #fe424d;
+  }
+
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md navbar-custom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+
+    <!-- Left Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Center Title -->
+    <div class="navbar-center-title">HomeHive</div>
+
+    <!-- Mobile Toggle -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Right Side Navigation -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <!-- <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-      </div> -->
       <div class="navbar-nav ms-auto">
+
+        <a class="nav-link" href="/listings">Explore</a>
         <a class="nav-link" href="/listings/new">Rent Home</a>
+
         <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
+          <a class="nav-link" href="/signup">
+            <div class="btn btn-auth btn-signup">Sign Up</div>
+          </a>
+          <a class="nav-link" href="/login">
+            <div class="btn btn-auth btn-login">Login</div>
+          </a>
         <% } else { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <a class="nav-link" href="/logout">
+            <div class="btn btn-auth btn-logout">Logout</div>
+          </a>
         <% } %>
+
       </div>
     </div>
+
   </div>
 </nav>
