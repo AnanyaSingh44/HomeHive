@@ -23,7 +23,7 @@ Before you begin, make sure you have the following installed on your system:
    - Add the following line to the `.env` file:
 
      ```
-     ATLASDB_URL=mongodb://127.0.0.1:27017/wanderlust
+     ATLASDB_URL=mongodb://127.0.0.1:27017/HomeHive
      ```
 
 3. Set up Cloudinary:
